@@ -1,0 +1,40 @@
+#displayBox{
+    width: 600px;
+    height: 600px;
+    border: 10px solid black;
+    border-radius: 10px;
+    margin: 0 auto;
+    margin-top: 60px;
+}
+
+#displayInfo{
+    height: 300px;
+    width: 600px;
+    background-color: white;
+}
+
+#displayList{
+    height: 300px;
+    width: 600px;
+    background-color: red;
+    overflow-x: auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.pokeListBox{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    padding-top: 10px;
+    margin-right: 5%;
+}
+
+.pokeListThumbnail{
+    align-items: left;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 30px; /*adjust this value to adjust spacing between each pokemon listing*/
+
+
+}
