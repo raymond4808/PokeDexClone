@@ -4,12 +4,12 @@
 // git commit -m "Commit message"
 // git push
 
-const pokeLoadCount = 20; //temp loading number
+const pokeLoadCount = 25; //temp loading number
 var pokeDex= {};
 
-window.onload = async function(){
-
+window.onload = async function(){ //onload loops through max pokeLoadCount to populate and load pokemon to display at the bottom
     for (let i =1; i <= pokeLoadCount; i++){
+        //waits for pokiInfo to load before creating HTML elements
         await loadPokeApi(i); //test with ID1
 
         let pokemon = document.createElement("div");
@@ -17,20 +17,20 @@ window.onload = async function(){
         pokemon.innerText=i.toString()+". "+ pokeDex[i]["name"].charAt(0).toUpperCase()+pokeDex[i]["name"].slice(1);
         
         pokemon.classList.add("pokeListBox");
-        pokemon.addEventListener("click", updatePokeFunction); //work in progress (below)
+        pokemon.addEventListener("click", updatePokeFunction); //work in progress (below) adds event listener to detect clicks to update the upper half with relative poke info
         document.getElementById("displayList").append(pokemon);
 
         let img = document.createElement("img");
         img.src= pokeDex[i]["img"];
         img.classList.add("pokeListThumbnail");
         pokemon.appendChild(img);
+        
         //<div id="1" class="pokeListName"> <img class="pokeListThumbnail" src="API URL"> </div>
-
     }
-    console.log(pokeDex); 
+    console.log(pokeDex); //troubleshooting purposes
 }
 
-async function loadPokeApi(input){
+async function loadPokeApi(input){ //async function that loads pokeInfo pulled from pokeAPI to populate pokeDex object array to be used later
     let url = "https://pokeapi.co/api/v2/pokemon/" + input.toString()
     try{
         let res = await fetch(url)
@@ -41,18 +41,14 @@ async function loadPokeApi(input){
         let pokemon = await res.json();
         let name= pokemon["name"]
         let pokeImg=pokemon["sprites"]["front_default"]
+        let pokeType=pokemon["types"] 
 
-        //document.getElementById("pokeName").innerHTML= name;
-        //document.getElementById("pokeImg").src = pokeImg;
-        
+        //document.getElementById("pokeName").innerHTML= name; //example troubleshooting comment
 
         res = await fetch(pokemon["species"]["url"])
         let pokeDesc= await res.json();
 
-        //pokeDesc = pokeDesc["flavor_text_entries"][8]["flavor_text"]
-        //document.getElementById("pokeDesc").innerHTML = pokeDesc;
-
-        pokeDex[input] = {"name": name, "img":pokeImg, "desc":pokeDesc}
+        pokeDex[input] = {"name": name, "img":pokeImg, "desc":pokeDesc, "types":pokeType}
     }
 
     catch (error) {
@@ -60,9 +56,28 @@ async function loadPokeApi(input){
     } 
 }
 
-function updatePokeFunction (){
+function updatePokeFunction (){ //update poke function clears existing info and updates the page with the onclicked loaded pokemon displayed in lower half
+    document.getElementById("pokeImg").classList.add("pokeImgUpdated");
     document.getElementById("pokeImg").src = pokeDex[this.id]["img"];
+
     document.getElementById("pokeName").innerHTML= pokeDex[this.id]["name"].charAt(0).toUpperCase()+pokeDex[this.id]["name"].slice(1);
+
     document.getElementById("pokeDesc").innerHTML= pokeDex[this.id]["desc"]["flavor_text_entries"][8]["flavor_text"]
-    //add more needs type, weakness and strengths w/ color, background color update on click
+    document.getElementById("pokeDesc").classList.add("pokeDesc");
+
+    let typesDiv = document.getElementById("pokeType");
+    typesDiv.innerHTML="";
+
+    let updatedTypes= pokeDex[this.id]["types"];
+    for (let i = 0; i < updatedTypes.length; i++){
+        let newTypeDiv= document.createElement("span");
+        newTypeDiv.classList.add("type-holder"); //adds class so we can CSS adjust to each class later
+        newTypeDiv.classList.add(updatedTypes[0]["type"]["name"]);//adds class so we can CSS adjust to each class later
+    
+        newTypeDiv.innerText= updatedTypes[i]["type"]["name"].toUpperCase();
+        typesDiv.appendChild(newTypeDiv);
+
+    }
+
+    //Work in progress: weakness and strengths w/ color, background color update on click
 }

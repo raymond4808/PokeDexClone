@@ -1,3 +1,7 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 #displayBox{
     width: 600px;
     height: 600px;
@@ -10,14 +14,14 @@
 #displayInfo{
     height: 300px;
     width: 600px;
-    background-color: white;
+    background-color: red;
     
 }
 
 #displayList{
     height: 300px;
     width: 600px;
-    background-color: red;
+    background-color: white;
     overflow-x: auto;
     display: flex;
     flex-direction: row;
@@ -28,18 +32,21 @@
 .pokeListBox{
     display: flex;
     flex-direction: column;
-    align-items: left;
+    align-items: center;
     padding-top: 10px;
-
-    
 }
 
 .pokeListThumbnail{
-    align-items: left;
-    width: 100px;
-    height: 100px;
+    align-items: center;
+    width: 110px;
+    height: 110px;
     margin-right: auto; /*adjust this value to adjust spacing between each pokemon listing*/
+    overflow: hidden;
+}
 
+.pokeListThumbnail img{
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .pokeListBox{
@@ -51,5 +58,35 @@
     width: 40%;
     height: 40%;
     margin-left: 3%;
+}
 
+#displayInfo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.pokeDesc{
+    margin: 3%;
+    background-color: white;
+    border: 1px solid black;
+    padding: 15px;
+    border-radius: 25px;
+    overflow-y: auto;
+}
+
+
+
+.pokeImgUpdated{
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 25px;
+    margin: 1%;
+}
+
+#pokeName{
+    font-size: larger;
+    font-weight: bold;
+    color: white;
 }

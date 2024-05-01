@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="description" content="Pokemon API display site">
-        <title> Pokemon API Website Start</title>
+        <title> PokeDex API Website Clone</title>
         <!--link stylesheet once established-->
         <link rel="stylesheet" href="pokeAnalyzer.css">
         <!--link .js script once used-->
@@ -11,16 +11,21 @@
 
     </head>
     <body>
-        <h1>Pokemon Analyzer</h1>
+        <h1>PokeDex Clone</h1>
         
         <div id="displayBox">
             <div id="displayInfo">
-                <div id="pokeName"> Main Display</div>
-                <img id="pokeImg" src="" alt="Pokemon Image">
+                <div id="pokeName"> PokeDex</div>
+                <img id="pokeImg" class="" src="https://www.freeiconspng.com/uploads/file-pokeball-png-0.png" alt="Pokemon Image" width="100px" height="100px">
+                <div id="pokeType"></div>
+                    <!-- <div class="type-holder grass">Example Type</div> -->
                 <div id="pokeDesc"></div>
             </div>
             <div id="displayList"></div>
         </div>
+        <br>
+        <!--Example template design scheme and add original pokemon colors to side-->
+        <img id="exampleDesign" class="" src="https://user-images.githubusercontent.com/59856984/179417920-dc98390f-dcd9-4af4-9a18-f19657c8535c.jpg" width="60%" height="60%">
 
 
         <script src="pokeAnalyzer.js"></script>
