@@ -4,7 +4,7 @@
 // git commit -m "Commit message"
 // git push
 const searchInput= document.getElementById("search");
-searchInput.addEventListener("input", filterSearch)
+searchInput.addEventListener("input", filterSearch);
 
 const pokeLoadCount = 151; //loading number for gen 1 pokemon
 var pokeDex= {};
@@ -80,18 +80,17 @@ function updatePokeFunction (){ //update poke function clears existing info and 
     
         newTypeDiv.innerText= updatedTypes[i]["type"]["name"].toUpperCase();
         typesDiv.appendChild(newTypeDiv);
-
     }
 
     //Work in progress: weakness and strengths w/ color
 }
 
 async function loadDisplayInput(input){ //onload loops through max pokeLoadCount to populate and load pokemon to display at the bottom and filters out based on input
+    
+    document.getElementById("displayList").innerHTML=""
     for (let i =1; i <= pokeLoadCount; i++){
         //waits for pokiInfo to load before creating HTML elements
         await loadPokeApi(i);
-        console.log(input);
-        //let cleanedInput= input.toLowerCase();
 
         if (pokeDex[i]["name"].match(input.toLowerCase())){
             let pokemon = document.createElement("div");
@@ -111,20 +110,21 @@ async function loadDisplayInput(input){ //onload loops through max pokeLoadCount
             
         }      
     }
+    console.log(pokeDex); //troubleshooting purposes
 }
 
 
-function filterSearch(){
+async function filterSearch(){
     input= document.getElementById("search").value;
     console.log(input);
 
     if (document.getElementById("search").innerHTML=""){
-        loadDisplay();
+        await loadDisplay();
     }
     
     else{
         document.getElementById("displayList").innerHTML="";
-        loadDisplayInput(input)
+        setTimeout(function(){loadDisplayInput(input)}, 300);//adds delay timer so previous input function can all load before updating input search
     }
 
 
