@@ -1,10 +1,12 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(32, 32, 32);
 }
 
 #displayBox{
     width: 600px;
     height: 600px;
+    background-color: red;
     border: 10px solid black;
     border-radius: 10px;
     margin: 0 auto;
@@ -31,22 +33,11 @@ body{
 
 .pokeListBox{
     display: flex;
+    height: 200px;
+    width: 200px;
     flex-direction: column;
     align-items: center;
     padding-top: 10px;
-}
-
-.pokeListThumbnail{
-    align-items: center;
-    width: 110px;
-    height: 110px;
-    margin-right: auto; /*adjust this value to adjust spacing between each pokemon listing*/
-    overflow: hidden;
-}
-
-.pokeListThumbnail img{
-    max-width: 100%;
-    max-height: 100%;
 }
 
 .pokeListBox{
@@ -55,10 +46,28 @@ body{
     border-radius: 25px;
     padding: 10px;
     margin: auto;
-    width: 40%;
-    height: 40%;
+    width: 150px;
+    height: 150px;
     margin-left: 3%;
 }
+
+.pokeListThumbnail{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 110px;
+    height: 110px;
+ /*adjust this value to adjust spacing between each pokemon listing|     margin-right: auto;*/
+}
+
+.pokeListThumbnail img{
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
 
 #displayInfo{
     display: flex;
@@ -89,4 +98,185 @@ body{
     font-size: larger;
     font-weight: bold;
     color: white;
+}
+
+/*below are CSS class styles for different poke elements types*/
+.grass{
+    background-color: rgb(4, 160, 4);
+    border: 2px solid black;
+    border-radius: 25px;
+    padding: 5px;
+    margin-right: 2px;
+    color: white;
+    font-size:medium;
+}
+
+.water{
+    background-color: rgb(26, 152, 236);
+    border: 2px solid black;
+    border-radius: 25px;
+    padding: 5px;
+    margin-right: 2px;
+    color: white;
+    font-size:medium;
+}
+
+.fire{
+    background-color: red;
+    border: 2px solid black;
+    border-radius: 25px;
+    padding: 5px;
+    margin-right: 2px;
+    color: white;
+    font-size:medium;
+}
+
+.electric{
+    background-color: rgb(233, 217, 3);
+    border: 2px solid black;
+    border-radius: 25px;
+    padding: 5px;
+    margin-right: 2px;
+    color: white;
+    font-size:medium;
+}
+
+.ice{
+    background-color:rgb(0, 225, 255);
+    border: 2px solid black;
+    border-radius: 25px;
+    padding: 5px;
+    margin-right: 2px;
+    color: white;
+    font-size:medium;
+}
+
+.poison{
+    background-color: purple;
+    border: 2px solid black;
+    border-radius: 25px;
+    padding: 5px;
+    margin-right: 2px;
+    color: white;
+    font-size:medium;
+}
+
+.ghost{
+    background-color:rgb(51, 51, 51);
+    border: 2px solid black;
+    border-radius: 25px;
+    padding: 5px;
+    margin-right: 2px;
+    color: white;
+    font-size:medium;
+}
+
+.dark{
+    background-color:black;
+    border: 2px solid black;
+    border-radius: 25px;
+    padding: 5px;
+    margin-right: 2px;
+    color: white;
+    font-size:medium;
+}
+
+.dragon{
+    background-color:navy;
+    border: 2px solid black;
+    border-radius: 25px;
+    padding: 5px;
+    margin-right: 2px;
+    color: white;
+    font-size:medium;
+}
+
+.bug{
+    background-color: rgb(102, 255, 0);
+    border: 2px solid black;
+    border-radius: 25px;
+    padding: 5px;
+    margin-right: 2px;
+    color: white;
+    font-size:medium;
+}
+
+.flying{
+    background-color: rgb(231, 230, 145);
+    border: 2px solid black;
+    border-radius: 25px;
+    padding: 5px;
+    margin-right: 2px;
+    color: white;
+    font-size:medium;
+}
+
+.normal{
+    background-color: rgb(243, 176, 52);
+    border: 2px solid black;
+    border-radius: 25px;
+    padding: 5px;
+    margin-right: 2px;
+    color: white;
+    font-size:medium;
+}
+
+.ground{
+    background-color: brown;
+    border: 2px solid black;
+    border-radius: 25px;
+    padding: 5px;
+    margin-right: 2px;
+    color: white;
+    font-size:medium;
+}
+
+.rock{
+    background-color:rgb(179, 179, 179);
+    border: 2px solid black;
+    border-radius: 25px;
+    padding: 5px;
+    margin-right: 2px;
+    color: white;
+    font-size:medium;
+}
+
+.fairy{
+    background-color:rgb(212, 0, 131);
+    border: 2px solid black;
+    border-radius: 25px;
+    padding: 5px;
+    margin-right: 2px;
+    color: white;
+    font-size:medium;
+}
+
+.steel{
+    background-color: rgb(206, 206, 206);
+    border: 2px solid black;
+    border-radius: 25px;
+    padding: 5px;
+    margin-right: 2px;
+    color: white;
+    font-size:medium;
+}
+
+.fighting{
+    background-color:gray;
+    border: 2px solid black;
+    border-radius: 25px;
+    padding: 5px;
+    margin-right: 2px;
+    color: white;
+    font-size:medium;
+}
+
+.psychic{
+    background-color:rgb(147, 0, 184);
+    border: 2px solid black;
+    border-radius: 25px;
+    padding: 5px;
+    margin-right: 2px;
+    color: white;
+    font-size:medium;
 }
