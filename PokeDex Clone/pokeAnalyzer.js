@@ -3,11 +3,14 @@
 // git add .
 // git commit -m "Commit message"
 // git push
+
+/*To Add: Poke number on top right of display, weakness and strength types, fancy the design, add AI reccomendation */
 const searchInput= document.getElementById("search");
 searchInput.addEventListener("input", filterSearch);
 
 const pokeLoadCount = 151; //loading number for gen 1 pokemon
 var pokeDex= {};
+window.onload = loadDisplay();
 
 async function loadDisplay(){ //onload loops through max pokeLoadCount to populate and load pokemon to display at the bottom
     for (let i =1; i <= pokeLoadCount; i++){
@@ -32,7 +35,7 @@ async function loadDisplay(){ //onload loops through max pokeLoadCount to popula
     //console.log(pokeDex); //troubleshooting purposes
 }
 
-window.onload = loadDisplay();
+
 
 async function loadPokeApi(input){ //async function that loads pokeInfo pulled from pokeAPI to populate pokeDex object array to be used later
     let url = "https://pokeapi.co/api/v2/pokemon/" + input.toString()
@@ -86,8 +89,7 @@ function updatePokeFunction (){ //update poke function clears existing info and 
 }
 
 async function loadDisplayInput(input){ //onload loops through max pokeLoadCount to populate and load pokemon to display at the bottom and filters out based on input
-    
-    document.getElementById("displayList").innerHTML=""
+    document.getElementById("displayList").innerHTML="";
     for (let i =1; i <= pokeLoadCount; i++){
         //waits for pokiInfo to load before creating HTML elements
         await loadPokeApi(i);
@@ -110,23 +112,22 @@ async function loadDisplayInput(input){ //onload loops through max pokeLoadCount
             
         }      
     }
-    console.log(pokeDex); //troubleshooting purposes
 }
 
 
-async function filterSearch(){
+async function filterSearch(){//has blank clearing search bar issue (resolved) but search time delayed
     input= document.getElementById("search").value;
-    console.log(input);
+    console.log(input);//trouble shooting
+    console.log(input.length);//trouble shooting
 
-    if (document.getElementById("search").innerHTML=""){
-        await loadDisplay();
+    if (input ==="" || input.length === 1){
+        document.getElementById("displayList").innerHTML="";
+        setTimeout(function(){loadDisplay()}, 500)
+        
     }
     
     else{
-        document.getElementById("displayList").innerHTML="";
-        setTimeout(function(){loadDisplayInput(input)}, 300);//adds delay timer so previous input function can all load before updating input search
+        setTimeout(function(){loadDisplayInput(input)}, 1500);//adds delay timer so previous input function can all load before updating input search
     }
-
-
 }
 
