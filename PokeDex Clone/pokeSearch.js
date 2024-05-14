@@ -19,15 +19,3 @@ async function filterSearch(){
     }
     
 }
-
-/*
-    if (input ===""){
-        document.getElementById("displayList").innerHTML="";
-        setTimeout(function(){loadDisplay()}, 200)
-        
-    }
-    
-    else{
-         setTimeout(function(){loadDisplayInput(input)}, 500);
-    }
-*/

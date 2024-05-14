@@ -11,6 +11,7 @@ body{
     border-radius: 10px;
     margin: 0 auto;
     margin-top: 60px;
+    z-index: 0;
 }
 
 #displayInfo{
@@ -29,6 +30,14 @@ body{
     flex-direction: row;
     gap: 10px;
     
+}
+#pokeNumber{
+    margin-top: 2%;
+    margin-left: 85%;
+    z-index: 1;
+    font-size: larger;
+    font-weight: bold;
+    color: white;
 }
 
 .pokeListBox{

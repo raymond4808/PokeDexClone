@@ -4,16 +4,12 @@
 // git commit -m "Commit message"
 // git push
 
-/*To Add: Poke number on top right of display, weakness and strength types, fancy the design, add AI reccomendation */
+/*To Add:weakness and strength types, add AI reccomendation */
 
 
 const pokeLoadCount = 151; //loading number for gen 1 pokemon
 var pokeDex = {};
 window.onload = loadDisplayInput("");
-
-
-
-
 
 async function loadPokeApi(input) { //async function that loads pokeInfo pulled from pokeAPI to populate pokeDex object array to be used later
     let url = "https://pokeapi.co/api/v2/pokemon/" + input.toString()
@@ -24,16 +20,16 @@ async function loadPokeApi(input) { //async function that loads pokeInfo pulled 
         }
 
         let pokemon = await res.json();
-        let name = pokemon["name"]
-        let pokeImg = pokemon["sprites"]["front_default"]
-        let pokeType = pokemon["types"]
-
+        let name = pokemon["name"];
+        let pokeImg = pokemon["sprites"]["front_default"];
+        let pokeType = pokemon["types"];
+        let pokeNum= pokemon["id"];
         //document.getElementById("pokeName").innerHTML= name; //example troubleshooting comment
 
-        res = await fetch(pokemon["species"]["url"])
+        res = await fetch(pokemon["species"]["url"]);
         let pokeDesc = await res.json();
 
-        pokeDex[input] = { "name": name, "img": pokeImg, "desc": pokeDesc, "types": pokeType }
+        pokeDex[input] = { "name": name, "img": pokeImg, "desc": pokeDesc, "types": pokeType, "id":pokeNum }
     }
 
     catch (error) {
@@ -44,6 +40,8 @@ async function loadPokeApi(input) { //async function that loads pokeInfo pulled 
 function updatePokeFunction() { //update poke function clears existing info and updates the page with the onclicked loaded pokemon displayed in lower half
     document.getElementById("pokeImg").classList.add("pokeImgUpdated");
     document.getElementById("pokeImg").src = pokeDex[this.id]["img"];
+
+    document.getElementById("pokeNumber").innerHTML= "#"+pokeDex[this.id]["id"];
 
     document.getElementById("pokeName").innerHTML = pokeDex[this.id]["name"].charAt(0).toUpperCase() + pokeDex[this.id]["name"].slice(1);
 
@@ -77,6 +75,7 @@ async function loadDisplayInput(input) { //onload loops through max pokeLoadCoun
             let pokemon = document.createElement("div");
             pokemon.id = i;
             pokemon.innerText = i.toString() + ". " + pokeDex[i]["name"].charAt(0).toUpperCase() + pokeDex[i]["name"].slice(1);
+            
 
             pokemon.classList.add("pokeListBox");
             pokemon.addEventListener("click", updatePokeFunction); //work in progress (below) adds event listener to detect clicks to update the upper half with relative poke info
@@ -91,8 +90,6 @@ async function loadDisplayInput(input) { //onload loops through max pokeLoadCoun
 
         }
     }
-
-
 
 }
 
