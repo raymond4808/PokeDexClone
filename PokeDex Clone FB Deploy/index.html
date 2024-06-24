@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="Pokemon API display site">
+        <title> PokeDex API Website Clone</title>
+        <!--link stylesheet once established-->
+        <link rel="stylesheet" href="pokeAnalyzer.css">
+        <!--link .js script once used-->
+        
+
+    </head>
+    <body>
+        <h1 style="color: white">PokeDex Clone</h1>
+        
+        <div id="displayBox">
+            <input type="search" id="search"placeholder="search for Pokemon">
+
+            <div id="pokeNumber"></div>
+
+            <div id="displayInfo">
+                
+                <div id="pokeName"> PokeDex</div>
+                <img id="pokeImg" class="" src="https://www.freeiconspng.com/uploads/file-pokeball-png-0.png" alt="Pokemon Image" width="100px" height="100px">
+                <div id="pokeType"></div>
+                    <!-- <div class="type-holder grass">Example Type</div> -->
+                <div id="pokeDesc"></div>
+            </div>
+            
+            <div id="displayList"></div>
+        </div>
+        
+        <script src="firebaseHosting.js"> </script>
+        <script src="pokeAnalyzer.js"></script>
+        <script src="pokeSearch.js"></script>
+
+    </body>
+
+</html>
+
+
+
+<!--
+    <br><br><br><br>
+    <img id="exampleDesign" class="" src="https://user-images.githubusercontent.com/59856984/179417920-dc98390f-dcd9-4af4-9a18-f19657c8535c.jpg" width="60%" height="60%">
+-->

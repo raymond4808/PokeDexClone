@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "PokeDex Clone FB Deploy",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
